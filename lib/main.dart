@@ -1,6 +1,5 @@
 // import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'fields.dart';
@@ -27,18 +26,19 @@ class MyApp extends StatelessWidget {
       title: 'Production Calculator',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
+            // ignore: deprecated_member_use
             bodyText1: TextStyle(color: Colors.black87, fontSize: 18)),
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: const Color.fromARGB(255, 44, 64, 118),
-        hintColor: Color.fromARGB(255, 250, 246, 242),
+        hintColor: const Color.fromARGB(255, 250, 246, 242),
         inputDecorationTheme: InputDecorationTheme(
             fillColor: const Color.fromARGB(255, 125, 183, 240),
             alignLabelWithHint: true,
-            labelStyle: TextStyle(color: Colors.black87, fontSize: 18),
+            labelStyle: const TextStyle(color: Colors.black87, fontSize: 18),
             filled: true,
             floatingLabelBehavior: FloatingLabelBehavior.auto,
-            floatingLabelStyle: TextStyle(
+            floatingLabelStyle: const TextStyle(
                 color: Color.fromARGB(255, 255, 255, 170), fontSize: 22.0),
             floatingLabelAlignment: FloatingLabelAlignment.start,
             border: OutlineInputBorder(
@@ -63,7 +63,6 @@ class ProductionCalculator extends StatefulWidget {
 class _ProductionCalculatorState extends State<ProductionCalculator> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     initBannerAd();
   }
@@ -165,11 +164,15 @@ class _ProductionCalculatorState extends State<ProductionCalculator> {
                   color: Color.fromARGB(255, 181, 222, 236), fontSize: 30.0),
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.workspaces),
+                  icon: const Icon(
+                    Icons.workspaces,
+                    color: Colors.amber,
+                  ),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => CompanyScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const CompanyScreen()),
                     );
                   },
                 )

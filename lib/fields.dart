@@ -6,7 +6,6 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String operation;
-  var data;
 
   void Function(double) updateSMV;
   void Function(double) updateQTY;
@@ -42,6 +41,7 @@ class CustomTextField extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
             ),
             onChanged: (value) {
+              double data;
               data = double.tryParse(value) ?? 0.0;
               if (operation == "SMV") {
                 updateSMV(data);
